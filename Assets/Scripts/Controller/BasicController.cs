@@ -17,7 +17,7 @@ public class BaseController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         animationHandler = GetComponent<AnimationHandler>();
-        _rigidbody.freezeRotation = true; // 회전 잠금!
+        _rigidbody.freezeRotation = true; // 회전 잠금
     }
 
     protected virtual void Start()
