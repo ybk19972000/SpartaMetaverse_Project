@@ -5659,8 +5659,9 @@ GameObject:
   - component: {fileID: 278342867}
   - component: {fileID: 278342868}
   - component: {fileID: 278342869}
+  - component: {fileID: 278342870}
   m_Layer: 0
-  m_Name: FlappyStage
+  m_Name: TheStackStage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5779,6 +5780,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &278342870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278342866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50db0d814908c748a8727923b4912cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theStack: TheStack
 --- !u!1 &496466304
 GameObject:
   m_ObjectHideFlags: 0
@@ -6539,6 +6553,50 @@ MonoBehaviour:
   target: {fileID: 1158112717}
   offset: {x: 0, y: 0, z: -10}
   tileMap: {fileID: 1119932826}
+--- !u!1 &869604736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 869604738}
+  - component: {fileID: 869604737}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &869604737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869604736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb1ad7f6ce09454d9e54d38933ef38c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &869604738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869604736}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &876449684
 GameObject:
   m_ObjectHideFlags: 0
@@ -9844,3 +9902,4 @@ SceneRoots:
   - {fileID: 278342867}
   - {fileID: 496466307}
   - {fileID: 51328708}
+  - {fileID: 869604738}
