@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum UIState
 { 
@@ -13,7 +14,6 @@ public enum UIState
 public class UIManager : MonoBehaviour
 {
     static UIManager instance;
-
     public static UIManager Instance
     {
         get { return instance; }
@@ -60,11 +60,7 @@ public class UIManager : MonoBehaviour
 
     public void OnClickExit()
     {
-#if UNITY_EDITOR //전처리기
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        SceneManager.LoadScene("MainScene");
     }
 
     public void UpdateScore()
@@ -77,4 +73,5 @@ public class UIManager : MonoBehaviour
         scoreUI.SetUI(theStack.Score, theStack.MaxCombo, theStack.BestScore, theStack.BestCombo);
         ChangeState(UIState.Score);
     }
+
 }
