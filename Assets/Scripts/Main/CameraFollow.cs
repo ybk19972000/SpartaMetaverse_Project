@@ -20,12 +20,7 @@ public class CameraFollow : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
-        halfHeight = mainCamera.orthographicSize; //Y축의 반-세로의 반값
-        halfWidth = halfHeight * mainCamera.aspect;//비율을 곱하면 x축의 반쪽 길이가 나옴 
-
-        Bounds bounds = tileMap.localBounds; //타일맵 범위
-        minBounds = bounds.min;
-        maxBounds = bounds.max;
+        UpdateCameraBound();
     }
 
     private void LateUpdate()
@@ -38,5 +33,31 @@ public class CameraFollow : MonoBehaviour
         float y = Mathf.Clamp(position.y, minBounds.y + halfHeight, maxBounds.y - halfHeight);
 
         transform.position = new Vector3(x,y,offset.z);
+    }
+
+    public void UpdateCameraBound()
+    {
+        if (target == null) return;
+
+        halfHeight = mainCamera.orthographicSize;
+        halfWidth = halfHeight * mainCamera.aspect;
+
+        TilemapRenderer tilemapRenderer = tileMap.GetComponent<TilemapRenderer>();
+
+        if (tilemapRenderer != null)
+        {
+            Bounds bounds = tilemapRenderer.bounds;
+
+            minBounds = bounds.min;
+            maxBounds = bounds.max;
+
+        }
+    }
+
+    public void SetTargetAndTileMap(Transform newTarget, Tilemap newTileMap)
+    {
+        target = newTarget;
+        tileMap = newTileMap;
+        UpdateCameraBound();
     }
 }

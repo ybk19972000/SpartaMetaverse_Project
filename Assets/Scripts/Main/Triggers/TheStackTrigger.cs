@@ -10,7 +10,7 @@ public class TheStackTrigger : MonoBehaviour
     {
         if(collider.CompareTag("Player"))
         {
-            FindAnyObjectByType<SceneController>().LoadScene(theStack);
+            GameManger.Instace.LoadScene(theStack);
         }
     }
 }
