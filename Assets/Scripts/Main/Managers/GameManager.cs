@@ -25,15 +25,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);   
         }
+        
 
     }
 
-    public void SetStackGameResult(int score, int bestScore, int bestCombo)
-    {
-        LastScore = score;
-        BestScore = bestScore;
-        BestCombo = bestCombo;
-    }
     public void LoadScene(string sceneName)
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -58,13 +53,20 @@ public class GameManager : MonoBehaviour
             CameraFollow cameraFollow = FindAnyObjectByType<CameraFollow>();
             PlayerController player = FindAnyObjectByType<PlayerController>();
             Tilemap tilemap = FindAnyObjectByType<Tilemap>();
+            MainScore mainScore = FindAnyObjectByType<MainScore>();
 
-            if(cameraFollow != null && player != null && tilemap != null) 
+            if (cameraFollow != null && player != null && tilemap != null) 
             {
                 cameraFollow.SetTargetAndTileMap(player.transform, tilemap);
             }
 
+            if (mainScore != null)
+            {
+                mainScore.SetScore(LastScore, BestScore, BestCombo);
+            }
         }
+
+      
 
     }
 }

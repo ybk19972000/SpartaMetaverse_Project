@@ -10417,9 +10417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraFollow: {fileID: 519420033}
-  lastScore: 0
-  bestScore: 0
-  bestCombo: 0
 --- !u!4 &1314011316
 Transform:
   m_ObjectHideFlags: 0
@@ -10591,7 +10588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 2137778644}
   bestComboText: {fileID: 866631169}
-  bestScoreText: {fileID: 2137778644}
+  bestScoreText: {fileID: 465524827}
 --- !u!1 &1659700229
 GameObject:
   m_ObjectHideFlags: 0
