@@ -315,6 +315,8 @@ public class TheStack : MonoBehaviour
 
     void UpdateScore()
     {
+        GameManager.Instance.LastScore = Score; //메인씬에 넘겨줄 스코어
+
         if(bestScore < stackCount)
         {
             Debug.Log("최고점수 갱신");
@@ -323,6 +325,10 @@ public class TheStack : MonoBehaviour
 
             PlayerPrefs.SetInt(BestScoreKey,bestScore);
             PlayerPrefs.SetInt(BestComboKey,bestCombo);
+
+            //다른 씬에 넘겨줄 정보
+            GameManager.Instance.BestScore = bestScore;
+            GameManager.Instance.BestCombo = bestCombo;
         }
     }
 

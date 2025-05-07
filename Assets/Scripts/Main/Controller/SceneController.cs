@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TheStackTrigger : MonoBehaviour
+public class SceneController : MonoBehaviour
 {
     [SerializeField] private string theStack = "TheStack";
 
@@ -10,7 +10,7 @@ public class TheStackTrigger : MonoBehaviour
     {
         if(collider.CompareTag("Player"))
         {
-            GameManger.Instace.LoadScene(theStack);
+            GameManager.Instance.LoadScene(theStack);
         }
     }
 }

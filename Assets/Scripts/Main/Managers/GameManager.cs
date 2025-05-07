@@ -4,32 +4,36 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
-public class GameManger : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static GameManger Instace { get; private set; }
-
+    public static GameManager Instance { get; private set; }
+    
     [SerializeField] private CameraFollow cameraFollow;
+
+    public int LastScore { get; set; }
+    public int BestScore { get; set; }
+    public int BestCombo { get; set; }
 
     private void Awake()
     {
-        if(Instace == null)
+        if(Instance == null)
         {
-            Instace = this;
-            DontDestroyOnLoad(gameObject);
+            Instance = this;
+            DontDestroyOnLoad(gameObject); //씬 변경시에도 존재
         }
         else
         {
             Destroy(gameObject);   
         }
 
-        Init();
     }
 
-    private void Init()
+    public void SetStackGameResult(int score, int bestScore, int bestCombo)
     {
-
+        LastScore = score;
+        BestScore = bestScore;
+        BestCombo = bestCombo;
     }
-
     public void LoadScene(string sceneName)
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
